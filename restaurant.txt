@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Data Entry Form</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Data Entry Form</h1>
+    <form id="restaurantForm">
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td>Location:</td>
+                <td><input type="text" id="location"></td>
+            </tr>
+            <tr>
+                <td>Cuisine:</td>
+                <td><input type="text" id="cuisine"></td>
+            </tr>
+            <tr>
+                <td>Rating:</td>
+                <td><input type="number" id="rating" min="1" max="5"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="button" onclick="submitForm()">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById("name").value;
+            const location = document.getElementById("location").value;
+            const cuisine = document.getElementById("cuisine").value;
+            const rating = parseInt(document.getElementById("rating").value);
+
+            if (name && location && cuisine && !isNaN(rating) && rating >= 1 && rating <= 5) {
+                saveData({ name, location, cuisine, rating });
+                resetForm();
+                alert("Restaurant data submitted successfully!");
+            } else {
+                alert("Please fill in all fields correctly.");
+            }
+        }
+
+        function saveData(data) {
+            // Here you can perform actions to save the data, e.g., send it to a server
+            console.log("Saving restaurant data:", data);
+        }
+
+        function resetForm() {
+            document.getElementById("restaurantForm").reset();
+        }
+    </script>
+</body>
+</html>

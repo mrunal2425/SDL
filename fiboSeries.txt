@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Series</title>
+</head>
+<body>
+    <h1>Fibonacci Series</h1>
+    <div id="fibonacciSeries"></div>
+
+    <script>
+        // Function to generate Fibonacci series up to a given number of terms
+        function generateFibonacciSeries(terms) {
+            let fibonacciSeries = [0, 1]; // Initialize the series with the first two Fibonacci numbers
+            for (let i = 2; i < terms; i++) {
+                fibonacciSeries[i] = fibonacciSeries[i - 1] + fibonacciSeries[i - 2]; // Generate subsequent Fibonacci numbers
+            }
+            return fibonacciSeries;
+        }
+
+        // Function to display the Fibonacci series on the HTML page
+        function displayFibonacciSeries(terms) {
+            let fibonacciSeries = generateFibonacciSeries(terms); // Generate the Fibonacci series
+            let output = "Fibonacci Series: ";
+            for (let i = 0; i < fibonacciSeries.length; i++) {
+                output += fibonacciSeries[i] + ", ";
+            }
+            document.getElementById("fibonacciSeries").innerText = output.slice(0, -2); // Display the series on the HTML page
+        }
+
+        // Call the displayFibonacciSeries function with the number of terms you want in the series
+        displayFibonacciSeries(10); // Change the argument to display more or fewer terms
+    </script>
+</body>
+</html>

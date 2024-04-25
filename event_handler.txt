@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button and Form Event Handlers</title>
+    <style>
+        .red {
+            background-color: red;
+            color: white;
+        }
+
+        .blue {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Button and Form Event Handlers</h1>
+    <form id="myForm" onsubmit="submitForm(event)">
+        <button type="submit" id="submitButton" onclick="changeColor()">Submit</button>
+    </form>
+
+    <script>
+        function changeColor() {
+            var button = document.getElementById("submitButton");
+            if (button.classList.contains("red")) {
+                button.classList.remove("red");
+                button.classList.add("blue");
+            } else {
+                button.classList.remove("blue");
+                button.classList.add("red");
+            }
+        }
+
+        function submitForm(event) {
+            event.preventDefault(); // Prevent form submission
+            console.log("Form submitted!");
+            // Here you can add additional logic to handle form submission
+        }
+    </script>
+</body>
+</html>

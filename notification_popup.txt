@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Popup</title>
+    <style>
+        /* Popup container */
+        .popup-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+            z-index: 9999;
+        }
+
+        /* Popup content */
+        .popup-content {
+            color: #333;
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Popup container -->
+    <div class="popup-container" id="popupContainer">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <div class="popup-content">
+            This is a notification popup!
+        </div>
+    </div>
+
+    <!-- Button to trigger the popup -->
+    <button onclick="showPopup()">Show Notification Popup</button>
+
+    <script>
+        // Function to show the popup
+        function showPopup() {
+            document.getElementById("popupContainer").style.display = "block";
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById("popupContainer").style.display = "none";
+        }
+    </script>
+</body>
+</html>

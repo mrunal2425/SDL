@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+</head>
+<body>
+    <h1>Cookie Example</h1>
+    <label for="username">Enter your username:</label>
+    <input type="text" id="username">
+    <button onclick="setCookie()">Set Cookie</button>
+
+    <script>
+        // Function to set a cookie
+        function setCookie() {
+            const username = document.getElementById("username").value;
+            if (username.trim() !== "") {
+                // Set cookie expiration to 1 year from now
+                const expirationDate = new Date();
+                expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+                const expires = "expires=" + expirationDate.toUTCString();
+                // Set the cookie
+                document.cookie = "username=" + username + ";" + expires + ";path=/";
+                alert("Cookie set successfully!");
+            } else {
+                alert("Please enter a username.");
+            }
+        }
+    </script>
+</body>
+</html>
