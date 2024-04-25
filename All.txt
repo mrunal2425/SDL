@@ -1,0 +1,827 @@
+calculator
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .calculator {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    #display {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+    }
+    .button {
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <input type="text" id="display" readonly>
+  <div class="buttons">
+    <div class="button" onclick="addToDisplay('7')">7</div>
+    <div class="button" onclick="addToDisplay('8')">8</div>
+    <div class="button" onclick="addToDisplay('9')">9</div>
+    <div class="button" onclick="addToDisplay('/')">/</div>
+    <div class="button" onclick="addToDisplay('4')">4</div>
+    <div class="button" onclick="addToDisplay('5')">5</div>
+    <div class="button" onclick="addToDisplay('6')">6</div>
+    <div class="button" onclick="addToDisplay('*')">*</div>
+    <div class="button" onclick="addToDisplay('1')">1</div>
+    <div class="button" onclick="addToDisplay('2')">2</div>
+    <div class="button" onclick="addToDisplay('3')">3</div>
+    <div class="button" onclick="addToDisplay('-')">-</div>
+    <div class="button" onclick="addToDisplay('0')">0</div>
+    <div class="button" onclick="addToDisplay('.')">.</div>
+    <div class="button" onclick="clearDisplay()">C</div>
+    <div class="button" onclick="calculate()">=</div>
+    <div class="button" onclick="addToDisplay('+')">+</div>
+  </div>
+</div>
+
+<script>
+  function addToDisplay(value) {
+    document.getElementById('display').value += value;
+  }
+
+  function clearDisplay() {
+    document.getElementById('display').value = '';
+  }
+
+  function calculate() {
+    var expression = document.getElementById('display').value;
+    try {
+      var result = eval(expression);
+      document.getElementById('display').value = result;
+    } catch (error) {
+      document.getElementById('display').value = 'Error';
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
+
+cookies
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+</head>
+<body>
+    <h1>Cookie Example</h1>
+    <label for="username">Enter your username:</label>
+    <input type="text" id="username">
+    <button onclick="setCookie()">Set Cookie</button>
+
+    <script>
+        // Function to set a cookie
+        function setCookie() {
+            const username = document.getElementById("username").value;
+            if (username.trim() !== "") {
+                // Set cookie expiration to 1 year from now
+                const expirationDate = new Date();
+                expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+                const expires = "expires=" + expirationDate.toUTCString();
+                // Set the cookie
+                document.cookie = "username=" + username + ";" + expires + ";path=/";
+                alert("Cookie set successfully!");
+            } else {
+                alert("Please enter a username.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+event handler
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button and Form Event Handlers</title>
+    <style>
+        .red {
+            background-color: red;
+            color: white;
+        }
+
+        .blue {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Button and Form Event Handlers</h1>
+    <form id="myForm" onsubmit="submitForm(event)">
+        <button type="submit" id="submitButton" onclick="changeColor()">Submit</button>
+    </form>
+
+    <script>
+        function changeColor() {
+            var button = document.getElementById("submitButton");
+            if (button.classList.contains("red")) {
+                button.classList.remove("red");
+                button.classList.add("blue");
+            } else {
+                button.classList.remove("blue");
+                button.classList.add("red");
+            }
+        }
+
+        function submitForm(event) {
+            event.preventDefault(); // Prevent form submission
+            console.log("Form submitted!");
+            // Here you can add additional logic to handle form submission
+        }
+    </script>
+</body>
+</html>
+
+
+facebook
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Facebook Registration</h2>
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <input type="text" id="firstName" placeholder="First Name">
+    <span id="firstNameError" class="error"></span><br>
+    <input type="text" id="lastName" placeholder="Last Name">
+    <span id="lastNameError" class="error"></span><br>
+    <input type="email" id="email" placeholder="Email">
+    <span id="emailError" class="error"></span><br>
+    <input type="password" id="password" placeholder="Password">
+    <span id="passwordError" class="error"></span><br>
+    <input type="submit" value="Register">
+  </form>
+</div>
+
+<script>
+  function validateForm() {
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var password = document.getElementById('password').value;
+
+    var firstNameError = document.getElementById('firstNameError');
+    var lastNameError = document.getElementById('lastNameError');
+    var emailError = document.getElementById('emailError');
+    var passwordError = document.getElementById('passwordError');
+
+    var valid = true;
+
+    if (firstName === '') {
+      firstNameError.innerText = 'First name is required';
+      valid = false;
+    } else {
+      firstNameError.innerText = '';
+    }
+
+    if (lastName === '') {
+      lastNameError.innerText = 'Last name is required';
+      valid = false;
+    } else {
+      lastNameError.innerText = '';
+    }
+
+    if (email === '') {
+      emailError.innerText = 'Email is required';
+      valid = false;
+    } else {
+      // Simple email format validation
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        emailError.innerText = 'Invalid email format';
+        valid = false;
+      } else {
+        emailError.innerText = '';
+      }
+    }
+
+    if (password === '') {
+      passwordError.innerText = 'Password is required';
+      valid = false;
+    } else {
+      if (password.length < 6) {
+        passwordError.innerText = 'Password must be at least 6 characters long';
+        valid = false;
+      } else {
+        passwordError.innerText = '';
+      }
+    }
+
+    return valid;
+  }
+</script>
+
+</body>
+</html>
+
+
+fiboSeries
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Series</title>
+</head>
+<body>
+    <h1>Fibonacci Series</h1>
+    <div id="fibonacciSeries"></div>
+
+    <script>
+        // Function to generate Fibonacci series up to a given number of terms
+        function generateFibonacciSeries(terms) {
+            let fibonacciSeries = [0, 1]; // Initialize the series with the first two Fibonacci numbers
+            for (let i = 2; i < terms; i++) {
+                fibonacciSeries[i] = fibonacciSeries[i - 1] + fibonacciSeries[i - 2]; // Generate subsequent Fibonacci numbers
+            }
+            return fibonacciSeries;
+        }
+
+        // Function to display the Fibonacci series on the HTML page
+        function displayFibonacciSeries(terms) {
+            let fibonacciSeries = generateFibonacciSeries(terms); // Generate the Fibonacci series
+            let output = "Fibonacci Series: ";
+            for (let i = 0; i < fibonacciSeries.length; i++) {
+                output += fibonacciSeries[i] + ", ";
+            }
+            document.getElementById("fibonacciSeries").innerText = output.slice(0, -2); // Display the series on the HTML page
+        }
+
+        // Call the displayFibonacciSeries function with the number of terms you want in the series
+        displayFibonacciSeries(10); // Change the argument to display more or fewer terms
+    </script>
+</body>
+</html>
+
+
+
+form 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Form</title>
+</head>
+<body>
+    <h1>Simple HTML Form</h1>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="successMessage" style="display: none;">
+        <p>Form submitted successfully!</p>
+    </div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the default form submission behavior
+            // You can add your form submission logic here
+            // For demonstration purposes, let's just display a success message
+            document.getElementById("myForm").reset(); // Reset form fields
+            document.getElementById("successMessage").style.display = "block"; // Display success message
+            setTimeout(function() {
+                document.getElementById("successMessage").style.display = "none"; // Hide success message after 3 seconds
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
+
+
+gamil
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Gmail Registration</h2>
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <input type="submit" value="Register">
+    <div id="errorDisplay" class="error"></div>
+  </form>
+</div>
+
+<script>
+  function validateForm() {
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var password = document.getElementById('password').value;
+
+    var errorDisplay = document.getElementById('errorDisplay');
+    errorDisplay.innerText = ''; // Clear previous error messages
+
+    if (firstName === '' || lastName === '' || email === '' || password === '') {
+      errorDisplay.innerText = 'All fields are required';
+      return false; // Prevent form submission
+    }
+
+    // Simple email format validation
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      errorDisplay.innerText = 'Invalid email format';
+      return false; // Prevent form submission
+    }
+
+    // Password length validation
+    if (password.length < 6) {
+      errorDisplay.innerText = 'Password must be at least 6 characters long';
+      return false; // Prevent form submission
+    }
+
+    // If all validations pass, allow form submission
+    return true;
+  }
+</script>
+
+</body>
+</html>
+
+image gallery
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Gallery</h1>
+        <div class="gallery">
+            <img src="img1.jpg" alt="Image 1">
+            <img src="img2.jpg" alt="Image 2">
+            <img src="img3.jpg" alt="Image 3">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+</body>
+</html>
+
+
+notification popups
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Popup</title>
+    <style>
+        /* Popup container */
+        .popup-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+            z-index: 9999;
+        }
+
+        /* Popup content */
+        .popup-content {
+            color: #333;
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Popup container -->
+    <div class="popup-container" id="popupContainer">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <div class="popup-content">
+            This is a notification popup!
+        </div>
+    </div>
+
+    <!-- Button to trigger the popup -->
+    <button onclick="showPopup()">Show Notification Popup</button>
+
+    <script>
+        // Function to show the popup
+        function showPopup() {
+            document.getElementById("popupContainer").style.display = "block";
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById("popupContainer").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+
+restaurant
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Data Entry Form</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Data Entry Form</h1>
+    <form id="restaurantForm">
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td>Location:</td>
+                <td><input type="text" id="location"></td>
+            </tr>
+            <tr>
+                <td>Cuisine:</td>
+                <td><input type="text" id="cuisine"></td>
+            </tr>
+            <tr>
+                <td>Rating:</td>
+                <td><input type="number" id="rating" min="1" max="5"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="button" onclick="submitForm()">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById("name").value;
+            const location = document.getElementById("location").value;
+            const cuisine = document.getElementById("cuisine").value;
+            const rating = parseInt(document.getElementById("rating").value);
+
+            if (name && location && cuisine && !isNaN(rating) && rating >= 1 && rating <= 5) {
+                saveData({ name, location, cuisine, rating });
+                resetForm();
+                alert("Restaurant data submitted successfully!");
+            } else {
+                alert("Please fill in all fields correctly.");
+            }
+        }
+
+        function saveData(data) {
+            // Here you can perform actions to save the data, e.g., send it to a server
+            console.log("Saving restaurant data:", data);
+        }
+
+        function resetForm() {
+            document.getElementById("restaurantForm").reset();
+        }
+    </script>
+</body>
+</html>
+
+
+TT
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>assignment 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 3px solid #000;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 style="text-align: center;">TY Time Table</h2>
+  <table>
+
+    <tr>
+      <th>Time Slot</th>
+      <th>Day</th>
+      <th>Arrival</th>
+      <th>Depature</th>
+      <!-- <th>Thursday</th>
+      <th>Friday</th> -->
+    </tr>
+
+    <tr>
+      <td>8:00 - 9:00</td>
+      <td>Monday</td>
+      <td>FSD</td>
+      <td>Java</td>
+      <!-- <td>HSMC</td>
+      <td>IVP</td> -->
+    </tr>
+
+    <tr>
+      <td>8:00 - 9:00</td>
+      <td>Monday</td>
+      <td>FSD</td>
+      <td>Java</td>
+      <!-- <td>HSMC</td>
+      <td>IVP</td> -->
+    </tr>
+
+
+    <tr>
+      <td>8:00 - 9:00</td>
+      <td>Monday</td>
+      <td>FSD</td>
+      <td>Java</td>
+      <!-- <td>HSMC</td>
+      <td>IVP</td> -->
+    </tr>
+
+    <tr>
+      <td>9:00 - 10:00</td>
+      <td>FSD</td>
+      <td>Java</td>
+      <td>IVP</td>
+      <!-- <td>OS</td>
+      <td>--</td> -->
+    </tr>
+    <tr>
+      <td>10:00 - 11:00</td>
+      <td>OS</td>
+      <td>FSD</td>
+      <td>Java</td>
+      <!-- <td>HSMC</td>
+      <td>IVP</td> -->
+    </tr>
+    <tr>
+      <td>11:00 - 12:00</td>
+      <td>FSD</td>
+      <td>Java</td>
+      <td>IVP</td>
+      <!-- <td>OS</td>
+      <td>--</td> -->
+    </tr>
+
+
+  </table>
+</body>
+
+</html>
+
+
+
+video page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+</head>
+<body>
+    <h1>Video Page</h1>
+
+    <div>
+        <h2>Embedded Video</h2>
+        <video controls width="640" height="360">
+            <source src="vd.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>
+
